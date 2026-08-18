@@ -1,0 +1,180 @@
+body {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 16px;
+  color: #242424;
+}
+
+.hidden {
+  display: none;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-button {
+  background: none;
+  color: #616161;
+  border: none;
+  border-radius: 0;
+  padding: 8px 4px;
+  margin-right: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+  color: #0f6cbd;
+  border-bottom-color: #0f6cbd;
+}
+
+.recap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.recap-empty {
+  font-size: 13px;
+  color: #616161;
+}
+
+.recap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recap-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.recap-item:hover {
+  background-color: #f5f5f5;
+}
+
+.recap-item-subject {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.recap-item-from {
+  font-size: 11px;
+  color: #616161;
+  margin-top: 2px;
+}
+
+.recap-item-note {
+  font-size: 12px;
+  margin-top: 6px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.recap-item-date {
+  font-size: 11px;
+  color: #8a8a8a;
+  margin-top: 6px;
+}
+
+button.small {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.mail-context {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.mail-subject {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mail-from {
+  font-size: 12px;
+  color: #616161;
+  margin-top: 2px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px;
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0f6cbd;
+  color: white;
+}
+
+button.secondary {
+  background-color: #f0f0f0;
+  color: #242424;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #107c10;
+  min-height: 16px;
+}
+
+.status.error {
+  color: #d13438;
+}
+
+#loading {
+  font-family: inherit;
+  padding: 16px;
+  font-size: 13px;
+  color: #616161;
+}

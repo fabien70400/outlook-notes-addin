@@ -1,0 +1,19 @@
+{
+  "name": "outlook-notes-addin",
+  "version": "1.0.0",
+  "description": "Add-in Outlook pour ajouter des notes de suivi sur les mails recus",
+  "scripts": {
+    "dev-server": "node app/server.js",
+    "start": "office-addin-debugging start manifest.xml",
+    "stop": "office-addin-debugging stop manifest.xml",
+    "validate": "office-addin-manifest validate manifest.xml"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "office-addin-debugging": "^5.1.6",
+    "office-addin-dev-certs": "^1.13.0",
+    "office-addin-manifest": "^1.13.0"
+  }
+}

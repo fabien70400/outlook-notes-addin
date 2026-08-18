@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <title>Note de suivi</title>
+  <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <main id="app" class="hidden">
+    <div class="tabs">
+      <button id="tab-note" class="tab-button active">Note</button>
+      <button id="tab-recap" class="tab-button">Suivi</button>
+    </div>
+
+    <section id="panel-note">
+      <div class="mail-context">
+        <div class="mail-subject" id="mail-subject">-</div>
+        <div class="mail-from" id="mail-from">-</div>
+      </div>
+
+      <label for="note-text">Note de suivi</label>
+      <textarea id="note-text" rows="8" placeholder="Ex: relancer le client le 25/08, en attente de devis..."></textarea>
+
+      <div class="actions">
+        <button id="save-button">Enregistrer</button>
+        <button id="clear-button" class="secondary">Effacer</button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </section>
+
+    <section id="panel-recap" class="hidden">
+      <div class="recap-header">
+        <span>Mails avec une note (sur ce poste)</span>
+        <button id="refresh-recap-button" class="secondary small">Actualiser</button>
+      </div>
+      <div id="recap-empty" class="recap-empty hidden">Aucune note enregistree pour l'instant.</div>
+      <ul id="recap-list" class="recap-list"></ul>
+    </section>
+  </main>
+
+  <main id="loading">Chargement...</main>
+
+  <script type="text/javascript" src="taskpane.js"></script>
+</body>
+</html>
