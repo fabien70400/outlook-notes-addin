@@ -12,12 +12,12 @@
   <DefaultLocale>fr-FR</DefaultLocale>
   <DisplayName DefaultValue="Notes de suivi" />
   <Description DefaultValue="Ajoutez une note de suivi sur chaque mail recu pour faciliter le suivi." />
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png" />
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png" />
-  <SupportUrl DefaultValue="https://localhost:3000" />
+  <IconUrl DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-128.png" />
+  <SupportUrl DefaultValue="https://fabien70400.github.io/outlook-notes-addin" />
 
   <AppDomains>
-    <AppDomain>https://localhost:3000</AppDomain>
+    <AppDomain>https://fabien70400.github.io/outlook-notes-addin</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -33,7 +33,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://localhost:3000/src/taskpane/taskpane.html" />
+        <SourceLocation DefaultValue="https://fabien70400.github.io/outlook-notes-addin/src/taskpane/taskpane.html" />
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -86,13 +86,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/src/taskpane/taskpane.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/src/taskpane/taskpane.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Suivi" />
@@ -144,13 +144,13 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
-          <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
-          <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
+          <bt:Image id="Icon.16x16" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-16.png" />
+          <bt:Image id="Icon.32x32" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-32.png" />
+          <bt:Image id="Icon.80x80" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/assets/icon-80.png" />
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html" />
-          <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html" />
+          <bt:Url id="Commands.Url" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/src/taskpane/taskpane.html" />
+          <bt:Url id="Taskpane.Url" DefaultValue="https://fabien70400.github.io/outlook-notes-addin/src/taskpane/taskpane.html" />
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Suivi" />
