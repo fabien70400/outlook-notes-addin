@@ -19,22 +19,70 @@ rappels...).
   correspondant. Contrairement a la note elle-meme, cette liste **ne se
   synchronise pas** entre plusieurs postes.
 
-## Prerequis
+## Hebergement (production)
+
+Les fichiers du volet (`src/taskpane/*`, `assets/*`) sont publies publiquement
+via GitHub Pages :
+
+**https://fabien70400.github.io/outlook-notes-addin/**
+
+Le `manifest.xml` du depot pointe deja vers cette URL. Toute modification du
+code source (`src/taskpane/`) doit etre commitee et poussee sur la branche
+`main` du depot [fabien70400/outlook-notes-addin](https://github.com/fabien70400/outlook-notes-addin)
+pour etre publiee (GitHub Pages se redeploie automatiquement en ~1 minute).
+
+## Partager l'add-in avec d'autres utilisateurs
+
+Comme le volet est deja heberge publiquement, **aucune installation Node.js
+n'est necessaire pour les autres utilisateurs**. Il suffit de leur transmettre
+le fichier [`manifest.xml`](manifest.xml) (par mail, Teams, fichier partage...)
+puis, pour chacun :
+
+1. Ouvrir [outlook.office.com](https://outlook.office.com) (ou Outlook
+   desktop), ouvrir un mail recu.
+2. Menu `...` > **Obtenir des complements** > **Mes complements** >
+   **Ajouter un complement personnalise** > **Ajouter a partir d'un fichier**.
+3. Selectionner le fichier `manifest.xml` recu.
+4. Le bouton **Note de suivi** apparait desormais dans le ruban de lecture des
+   mails.
+
+Chaque utilisateur ne voit et ne modifie que les notes sur les mails de **sa
+propre boite** (la note est stockee sur le mail via les proprietes Exchange,
+propres a chaque mailbox).
+
+### Deploiement centralise (si vous obtenez les droits admin M365)
+
+Si un administrateur Microsoft 365 est disponible, il est preferable de
+deployer via le **Centre d'administration Microsoft 365** > *Parametres* >
+*Applications integrees* > *Charger un complement personnalise*, en fournissant
+la meme URL de manifest. Cela evite a chaque utilisateur de le side-charger
+manuellement et permet de cibler des groupes/utilisateurs precis.
+
+## Developper / modifier le code en local
+
+Ces etapes ne sont necessaires que pour modifier le code du volet, pas pour
+l'utiliser une fois publie sur GitHub Pages.
+
+### Prerequis
 
 - Node.js 18+
 - Outlook desktop (Windows/Mac) connecte a un compte Microsoft 365/Exchange,
   ou Outlook sur le web.
+- Un compte GitHub avec acces en ecriture au depot (pour publier les
+  changements).
 
-## Installation
+### Installation
 
 ```bash
 cd outlook-notes-addin
 npm install
 ```
 
-## Lancer en local
+### Tester ses modifications avant de les publier
 
-1. Demarrer le serveur de dev (sert les fichiers en HTTPS sur le port 3000) :
+1. Modifier temporairement `manifest.xml` pour repointer les URLs vers
+   `https://localhost:3000` (voir l'historique git pour un exemple), ou tester
+   directement en local avant de commit/push :
 
 ```bash
 npm run dev-server
@@ -49,20 +97,16 @@ npm run dev-server
 npm start
 ```
 
-   Cela ouvre Outlook et installe automatiquement l'add-in a partir de
-   `manifest.xml`. Ouvrez un mail recu : un bouton **Note de suivi** apparait
-   dans le ruban, il ouvre le volet lateral.
-
    Pour arreter/desinstaller : `npm run stop`.
 
-### Alternative : side-chargement manuel (Outlook sur le web)
+3. Une fois valide, remettre les URLs de `manifest.xml` sur
+   `https://fabien70400.github.io/outlook-notes-addin`, puis :
 
-Si `npm start` ne fonctionne pas pour votre configuration :
-
-1. Sur [outlook.office.com](https://outlook.office.com), ouvrir un mail.
-2. Menu `...` > **Obtenir des compléments** > **Mes compléments** >
-   **Ajouter un complement personnalise** > **Ajouter à partir d'un fichier**.
-3. Selectionner `manifest.xml` (le serveur `npm run dev-server` doit tourner).
+```bash
+git add -A
+git commit -m "Description du changement"
+git push
+```
 
 ## Utilisation
 
@@ -110,7 +154,6 @@ outlook-notes-addin/
   stockage externe (API + base de donnees).
 - Fonctionne sur Outlook desktop et Outlook web ; a valider specifiquement
   sur Outlook mobile si besoin.
-- Pour un usage en production (hors poste de dev), il faudra heberger les
-  fichiers statiques sur un vrai serveur HTTPS et deployer le manifest via le
-  Centre d'administration Microsoft 365 (deploiement centralise) plutot que
-  le side-chargement.
+- Le depot GitHub est **public** (requis pour GitHub Pages gratuit) : le code
+  source du volet est visible par tous, mais aucune note ni donnee
+  utilisateur n'y transite (tout reste dans Exchange).
