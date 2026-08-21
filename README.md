@@ -18,6 +18,12 @@ rappels...).
   notes depuis cet ordinateur. Cliquer sur une ligne rouvre le mail
   correspondant. Contrairement a la note elle-meme, cette liste **ne se
   synchronise pas** entre plusieurs postes.
+- Chaque ligne de l'onglet **Suivi** a une petite croix pour supprimer
+  l'entree. Si le mail concerne est celui actuellement ouvert, la note est
+  aussi effacee sur le mail. Si ce n'est pas le mail ouvert, seule l'entree de
+  la liste locale est supprimee (Office.js ne permet pas de modifier un mail
+  qui n'est pas ouvert) : la note reste sur le mail et reapparaitra dans la
+  liste si vous la rouvrez et l'enregistrez a nouveau.
 
 ## Hebergement (production)
 

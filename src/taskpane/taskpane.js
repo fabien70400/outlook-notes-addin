@@ -112,7 +112,7 @@ function onClear() {
       return;
     }
     setStatus("Note effacee.");
-    removeRecapEntry();
+    removeRecapIndexEntry(currentItemId);
   });
 }
 
@@ -163,12 +163,29 @@ function upsertRecapEntry(note, savedAt) {
   writeRecapIndex(entries);
 }
 
-function removeRecapEntry() {
-  if (!currentItemId) {
+function removeRecapIndexEntry(itemId) {
+  if (!itemId) {
     return;
   }
-  const entries = readRecapIndex().filter((e) => e.itemId !== currentItemId);
+  const entries = readRecapIndex().filter((e) => e.itemId !== itemId);
   writeRecapIndex(entries);
+}
+
+function deleteFromRecap(itemId) {
+  removeRecapIndexEntry(itemId);
+
+  if (itemId === currentItemId && customProps) {
+    noteTextEl.value = "";
+    customProps.set(NOTE_PROPERTY, "");
+    customProps.set(SAVED_AT_PROPERTY, "");
+    customProps.saveAsync((result) => {
+      if (result.status === Office.AsyncResultStatus.Succeeded) {
+        setStatus("Note effacee.");
+      }
+    });
+  }
+
+  renderRecapList();
 }
 
 function renderRecapList() {
@@ -181,9 +198,25 @@ function renderRecapList() {
     const li = document.createElement("li");
     li.className = "recap-item";
 
+    const header = document.createElement("div");
+    header.className = "recap-item-header";
+
     const subject = document.createElement("div");
     subject.className = "recap-item-subject";
     subject.textContent = entry.subject || "(sans objet)";
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "recap-item-delete";
+    deleteButton.setAttribute("aria-label", "Supprimer la note");
+    deleteButton.setAttribute("title", "Supprimer la note");
+    deleteButton.textContent = "×";
+    deleteButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      deleteFromRecap(entry.itemId);
+    });
+
+    header.appendChild(subject);
+    header.appendChild(deleteButton);
 
     const from = document.createElement("div");
     from.className = "recap-item-from";
@@ -197,7 +230,7 @@ function renderRecapList() {
     date.className = "recap-item-date";
     date.textContent = entry.savedAt ? new Date(entry.savedAt).toLocaleString("fr-FR") : "";
 
-    li.appendChild(subject);
+    li.appendChild(header);
     li.appendChild(from);
     li.appendChild(note);
     li.appendChild(date);
